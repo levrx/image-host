@@ -20,12 +20,12 @@
       </div>
       <div class="text-area">
         <span>
-          You can directly take a screenshot and paste or drag it here. Only gif, jpeg, jpg, and png are allowed. The image limit is within 5M.
+          You can directly take a screenshot and paste or drag it here. Only gif, jpeg, jpg, and png's are allowed. The image limit is within 5M.
         </span>
       </div>
       <div class="upload-btn">
         <el-button class="ml-3" round type="primary">
-          Select upload image
+          Upload image
         </el-button>
       </div>
     </el-upload>
@@ -35,7 +35,7 @@
           content="If the image size exceeds the limit, it will be automatically compressed."
           placement="top-start"
       >
-        <el-checkbox class="compress" v-model="compress" size="small"  @click.stop>Compress Pictures</el-checkbox>
+        <el-checkbox class="compress" v-model="compress" size="small"  @click.stop>Compress</el-checkbox>
       </el-tooltip>
     </div>
   </div>
