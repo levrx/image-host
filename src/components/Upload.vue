@@ -1,6 +1,6 @@
 <template>
   <div class="upload">
-    <div class="title">Telegraph-Image-Pages</div>
+    <div class="title">levrx image host</div>
     <div class="upload-main">
         <Waiting v-show="status === 0" @change="onChange" :show="status === 0"/>
         <Uploading v-show="status === 1"/>

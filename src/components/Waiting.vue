@@ -35,7 +35,7 @@
           content="If the image size exceeds the limit, it will be automatically compressed."
           placement="top-start"
       >
-        <el-checkbox class="compress" v-model="compress" size="small"  @click.stop>压缩图片</el-checkbox>
+        <el-checkbox class="compress" v-model="compress" size="small"  @click.stop>Compress Pictures</el-checkbox>
       </el-tooltip>
     </div>
   </div>

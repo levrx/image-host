@@ -7,9 +7,6 @@
     <div class="main">
       <Upload/>
     </div>
-    <div class="footer">
-      based on <a href="https://telegra.ph" target="_blank">Telegraph</a> Image upload tool, UI comes from <a href="https://github.com/cf-pages/Telegraph-Image" target="_blank">Image Host</a>
-    </div>
   </div>
 </template>
 <script setup lang="ts">

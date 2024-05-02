@@ -22,7 +22,7 @@ export const router = createRouter({
 router.beforeEach((to, from, next) => {
     const { meta } = to
     if (meta && meta.title) {
-        document.title = `${meta.title} | Telegraph-Image-Pages`
+        document.title = `Image Host`
     }
     next()
 })
