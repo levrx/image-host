@@ -29,88 +29,81 @@
         </el-button>
       </div>
     </el-upload>
-    <div class="advanced" @click.stop>
-      <el-tooltip
-          effect="light"
-          content="If the image size exceeds the limit, it will be automatically compressed."
-          placement="top-start"
-      >
-        <el-checkbox class="compress" v-model="compress" size="small"  @click.stop>Compress</el-checkbox>
-      </el-tooltip>
-    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import {STATUS} from "./constant"
-import {ElMessage} from "element-plus";
-import {ref, watch} from "vue";
-import {usePaste} from "../hooks/usePaste";
-import {postUpload} from "../api";
-import { compressFile } from "../utils/compressFile"
-const accept = ['gif','jpeg','jpg','png'].map(type => `image/${type}`).join(',')
-const emit  = defineEmits(["change"])
-const MAX_SIZE = 5 *  1024 * 1024
-const compress = ref(false)
+import { STATUS } from "./constant";
+import { ElMessage } from "element-plus";
+import { ref, watch } from "vue";
+import { usePaste } from "../hooks/usePaste";
+import { postUpload } from "../api";
+import { compressFile } from "../utils/compressFile";
+
+const accept = ['gif','jpeg','jpg','png'].map(type => `image/${type}`).join(',');
+const emit = defineEmits(["change"]);
+const MAX_SIZE = 5 * 1024 * 1024;
 const props = defineProps({
   show: {
     type: Boolean,
     default: true
   }
-})
+});
+
+// Set compress to always true
+const compress = ref(true);
 
 const onBeforeUpload = async (raw: any) => {
-  let result = raw
-  if(raw.size > MAX_SIZE){
-    if(!compress.value){
-      ElMessage.error('Image size cannot exceed 5MB！')
-      return false
-    }else{
-      result =  await compressFile(raw)
+  let result = raw;
+  if (raw.size > MAX_SIZE) {
+    if (!compress.value) {
+      ElMessage.error('Image size cannot exceed 5MB！');
+      return false;
+    } else {
+      result = await compressFile(raw);
     }
   }
-  emit("change", STATUS.UPLOADING)
-  return result
-}
-const onSuccess = (response:any) => {
+  emit("change", STATUS.UPLOADING);
+  return result;
+};
+
+const onSuccess = (response: any) => {
   setTimeout(() => {
-    emit("change", STATUS.DONE, response)
-  },200)
-}
+    emit("change", STATUS.DONE, response);
+  }, 200);
+};
 
 const onError = () => {
   setTimeout(() => {
-    emit("change", STATUS.ERROR)
-  },200)
-}
-const { clipboardFile, paste } = usePaste()
-const uploadPasteImg = async () => {
-  const file = clipboardFile.value
-  clipboardFile.value = undefined
-  const pass = onBeforeUpload(file)
-  if(!pass) return
-  const response: any = await postUpload(file).catch(() => {
-    onError()
-  })
-  if(response.status === 200 && response.data && response.data.length > 0){
-      onSuccess(response.data)
-  }else{
-    onError()
-  }
-}
+    emit("change", STATUS.ERROR);
+  }, 200);
+};
 
+const { clipboardFile, paste } = usePaste();
+const uploadPasteImg = async () => {
+  const file = clipboardFile.value;
+  clipboardFile.value = undefined;
+  const pass = onBeforeUpload(file);
+  if (!pass) return;
+  const response: any = await postUpload(file).catch(() => {
+    onError();
+  });
+  if (response.status === 200 && response.data && response.data.length > 0) {
+    onSuccess(response.data);
+  } else {
+    onError();
+  }
+};
 
 watch(paste, () => {
-  if(!props.show) return
-  const { type } = clipboardFile.value
-  if(accept.includes(type)){
-    uploadPasteImg()
-  }else{
-    ElMessage.error('File format is incorrect！')
+  if (!props.show) return;
+  const { type } = clipboardFile.value;
+  if (accept.includes(type)) {
+    uploadPasteImg();
+  } else {
+    ElMessage.error('File format is incorrect！');
   }
-})
-
-
+});
 </script>
 
 <style lang="less" scoped>
@@ -172,14 +165,6 @@ watch(paste, () => {
   to {
     transform: scale(1.5);
     border: 1px solid rgba(199,207,215,.1)
-  }
-}
-
-.advanced{
-  height: 44px;
-  padding: 10px 40px;
-  .compress{
-    font-size: 12px;
   }
 }
 </style>
