@@ -9,7 +9,7 @@
     </div>
     <div class="text-area">
         <span>
-          复制下面的图片地址 或者 取消重新上传
+         Copy the image address below or cancel and re-upload
         </span>
     </div>
     <div class="url-box" v-if="file">
@@ -54,7 +54,7 @@ const markdownUrl = computed(() => {
 const copyText = (text:string) => {
   copy(text)
   ElMessage({
-    message: '复制图片地址成功！',
+    message: 'Copied image address successfully！',
     type: 'success',
   })
 }

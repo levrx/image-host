@@ -20,19 +20,19 @@
       </div>
       <div class="text-area">
         <span>
-          可直接截图并粘贴或拖拽到这里，仅限gif、jpeg、jpg、png，图片限制5M以内
+          You can directly take a screenshot and paste or drag it here. Only gif, jpeg, jpg, and png are allowed. The image limit is within 5M.
         </span>
       </div>
       <div class="upload-btn">
         <el-button class="ml-3" round type="primary">
-          选择上传图片
+          Select upload image
         </el-button>
       </div>
     </el-upload>
     <div class="advanced" @click.stop>
       <el-tooltip
           effect="light"
-          content="图片大小超过限制会自动进行压缩"
+          content="If the image size exceeds the limit, it will be automatically compressed."
           placement="top-start"
       >
         <el-checkbox class="compress" v-model="compress" size="small"  @click.stop>压缩图片</el-checkbox>
@@ -63,7 +63,7 @@ const onBeforeUpload = async (raw: any) => {
   let result = raw
   if(raw.size > MAX_SIZE){
     if(!compress.value){
-      ElMessage.error('图片大小不能超过 5MB！')
+      ElMessage.error('Image size cannot exceed 5MB！')
       return false
     }else{
       result =  await compressFile(raw)
@@ -106,7 +106,7 @@ watch(paste, () => {
   if(accept.includes(type)){
     uploadPasteImg()
   }else{
-    ElMessage.error('文件格式不正确！')
+    ElMessage.error('File format is incorrect！')
   }
 })
 

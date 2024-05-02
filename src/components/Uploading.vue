@@ -9,7 +9,7 @@
     </div>
     <div class="text-area">
         <span>
-          正在上传，请稍等…
+          Uploading, please wait...
         </span>
     </div>
   </div>

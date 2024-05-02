@@ -9,7 +9,7 @@
     </div>
     <div class="text-area">
         <span>
-          出错啦，请重新上传
+          Something went wrong, please upload again
         </span>
     </div>
   </div>

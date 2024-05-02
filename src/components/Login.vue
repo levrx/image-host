@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <span class="btn">登录</span>
+    <span class="btn">Login</span>
   </div>
 </template>
 
