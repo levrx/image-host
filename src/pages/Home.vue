@@ -2,7 +2,7 @@
   <div id="box">
     <wallpapers/>
     <div class="header">
-      <a href="https://github.com/xkrfer/Telegraph-Image-Pages" target="_blank"></a>
+      <a href="https://github.com/levrx" target="_blank"></a>
     </div>
     <div class="main">
       <Upload/>
