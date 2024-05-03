@@ -27,11 +27,14 @@ const  { wallpapers } = useWallpapers()
   background-repeat: no-repeat;
   margin: 0;
 }
-.background-container{
+
+.background-container {
   .wallpapers-box;
-  background-color: linear-gradient(240deg,rgba(150,50,50,.3),rgba(0,0,200,0));
+  background-color: linear-gradient(240deg, #24d155, #00C8);
   z-index: -1;
 }
+
+
 #background-slider{
   height: 100%;
   width: 100%;
