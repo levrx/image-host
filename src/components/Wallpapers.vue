@@ -29,7 +29,11 @@ const { wallpapers } = useWallpapers()
 }
 
 .background-container {
-  .wallpapers-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   background: linear-gradient(240deg, rgba(144, 238, 144, 0.3), rgba(34, 139, 34, 0.3));
   z-index: -1;
 }
