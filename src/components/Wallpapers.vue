@@ -30,7 +30,7 @@ const  { wallpapers } = useWallpapers()
 
 .background-container {
   .wallpapers-box;
-  background-color: linear-gradient(240deg, #24d155, #24d155);
+  background-color: linear-gradient(240deg, #24d155, #00C8);
   z-index: -1;
 }
 
