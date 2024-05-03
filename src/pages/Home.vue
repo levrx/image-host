@@ -6,6 +6,10 @@
     </div>
     <div class="main">
       <Upload/>
+      <!-- Render uploaded images -->
+      <div class="uploaded-images">
+        <img v-for="(image, index) in uploadedImages" :key="index" :src="image" alt="Uploaded Image">
+      </div>
     </div>
   </div>
 </template>
@@ -13,6 +17,10 @@
 <script setup lang="ts">
 import Wallpapers from "../components/Wallpapers.vue"
 import Upload from "../components/Upload.vue"
+import { reactive } from "vue";
+
+// Assuming `uploadedImages` is an array of image URLs fetched from the database
+const uploadedImages = reactive(["image1.jpg", "image2.jpg", "image3.jpg"]); // Replace with actual data
 </script>
 
 <style scoped lang="less">
