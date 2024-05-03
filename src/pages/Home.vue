@@ -16,7 +16,7 @@ import Upload from "../components/Upload.vue"
 </script>
 
 <style scoped lang="less">
-#box{
+#box {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -25,34 +25,39 @@ import Upload from "../components/Upload.vue"
   box-sizing: border-box;
   padding: 30px;
   background: linear-gradient(240deg, rgba(144, 238, 144, 0.3), rgba(34, 139, 34, 0.3));
-  .main{
-    flex: 1;
-    flex-direction: column;
-    padding: 30px 0;
-    align-items: center;
-    box-sizing: border-box;
-  }
-  .header{
-    display: flex;
-    justify-content: end;
-    a{
-      width: 22px;
-      height: 22px;
-      background-image: url("/github.svg");
-      background-color: transparent;
-      background-size: 110%;
-      background-repeat: no-repeat;
-      background-position: top;
-    }
-  }
-  .footer{
-    font-size: 12px;
-    color: #fff;
-    a{
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700
-    }
-  }
+}
+
+.main {
+  flex: 1;
+  flex-direction: column;
+  padding: 30px 0;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: end;
+}
+
+.header a {
+  width: 22px;
+  height: 22px;
+  background-image: url("/github.svg");
+  background-color: transparent;
+  background-size: 110%;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.footer {
+  font-size: 12px;
+  color: #fff;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
 }
 </style>
