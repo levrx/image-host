@@ -27,13 +27,13 @@
   </div>
 </template>
 
-<script>
-import { STATUS } from "./constant";
+<script lang="ts">
+import { defineProps, defineEmits, watch } from "vue";
 import { ElMessage } from "element-plus";
-import { defineProps, defineEmits } from "vue";
 import { usePaste } from "../hooks/usePaste";
 import { postUpload } from "../api";
 import { compressFile } from "../utils/compressFile";
+import { STATUS } from "./constant";
 
 export default {
   setup() {
@@ -47,7 +47,7 @@ export default {
       }
     });
 
-    const onBeforeUpload = async (raw) => {
+    const onBeforeUpload = async (raw: any) => {
       let result = raw;
       if (raw.size > MAX_SIZE) {
         ElMessage.error('Image size cannot exceed 5MB！');
@@ -57,7 +57,7 @@ export default {
       return result;
     };
 
-    const onSuccess = (response) => {
+    const onSuccess = (response: any) => {
       setTimeout(() => {
         emit("change", STATUS.DONE, response);
       }, 200);
@@ -75,7 +75,7 @@ export default {
       clipboardFile.value = undefined;
       const pass = onBeforeUpload(file);
       if (!pass) return;
-      const response = await postUpload(file).catch(() => {
+      const response: any = await postUpload(file).catch(() => {
         onError();
       });
       if (response.status === 200 && response.data && response.data.length > 0) {
