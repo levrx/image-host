@@ -5,7 +5,7 @@
       <a href="https://github.com/levrx" target="_blank"></a>
     </div>
     <div class="main">
-      <Upload/>
+      <Upload @imageUploaded="handleImageUploaded"/>
       <!-- Render uploaded images -->
       <div class="uploaded-images">
         <img v-for="(image, index) in uploadedImages" :key="index" :src="image" alt="Uploaded Image">
@@ -19,8 +19,14 @@ import Wallpapers from "../components/Wallpapers.vue"
 import Upload from "../components/Upload.vue"
 import { reactive } from "vue";
 
-// Assuming `uploadedImages` is an array of image URLs fetched from the database
-const uploadedImages = reactive(["image1.jpg", "image2.jpg", "image3.jpg"]); // Replace with actual data
+// Reactive array to store uploaded image URLs
+const uploadedImages = reactive([]);
+
+// Function to handle image uploaded event
+const handleImageUploaded = (imageUrl: string) => {
+  // Push the new image URL to the array
+  uploadedImages.push(imageUrl);
+}
 </script>
 
 <style scoped lang="less">
@@ -58,14 +64,16 @@ const uploadedImages = reactive(["image1.jpg", "image2.jpg", "image3.jpg"]); // 
   background-position: top;
 }
 
-.footer {
-  font-size: 12px;
-  color: #fff;
+.uploaded-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.footer a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
+.uploaded-images img {
+  margin: 5px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 </style>
