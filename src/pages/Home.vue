@@ -9,6 +9,7 @@
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
 import Wallpapers from "../components/Wallpapers.vue"
 import Upload from "../components/Upload.vue"

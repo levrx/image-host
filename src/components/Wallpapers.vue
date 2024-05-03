@@ -11,8 +11,8 @@
 </template>
 
 <script lang="ts" setup>
-import {useWallpapers} from "../hooks/useWallpapers";
-const  { wallpapers } = useWallpapers()
+import { useWallpapers } from "../hooks/useWallpapers";
+const { wallpapers } = useWallpapers()
 </script>
 
 <style lang="less" scoped>
@@ -30,10 +30,9 @@ const  { wallpapers } = useWallpapers()
 
 .background-container {
   .wallpapers-box;
-  background-color: linear-gradient(240deg, rgba(144, 238, 144, 0.3), rgba(34, 139, 34, 0.3));
+  background: linear-gradient(240deg, rgba(144, 238, 144, 0.3), rgba(34, 139, 34, 0.3));
   z-index: -1;
 }
-
 
 #background-slider{
   height: 100%;
@@ -43,33 +42,33 @@ const  { wallpapers } = useWallpapers()
     color: transparent;
     opacity: 0;
     backface-visibility: hidden;
-    animation: imageAnimation 30s linear -.5s infinite
-
-  };
+    animation: imageAnimation 30s linear -.5s infinite;
+  }
 }
+
 @-webkit-keyframes imageAnimation {
   0% {
     opacity: 0;
     -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in
+    animation-timing-function: ease-in;
   }
 
   3% {
     opacity: 1;
     -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out
+    animation-timing-function: ease-out;
   }
 
   20% {
-    opacity: 1
+    opacity: 1;
   }
 
   28% {
-    opacity: 0
+    opacity: 0;
   }
 
   to {
-    opacity: 0
+    opacity: 0;
   }
 }
 </style>
