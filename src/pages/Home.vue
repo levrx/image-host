@@ -24,7 +24,7 @@ import Upload from "../components/Upload.vue"
   position: relative;
   box-sizing: border-box;
   padding: 30px;
-  background: linear-gradient(240deg, rgba(173, 255, 47, 0.3), rgba(0, 100, 0, 0.3));
+  background: linear-gradient(240deg, rgba(173, 255, 47, 0.7), rgba(0, 100, 0, 0.7)); 
 }
 
 .main {
