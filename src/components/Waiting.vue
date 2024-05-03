@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { defineProps, defineEmits, watch } from "vue";
+import { defineProps, defineEmits, ref, watch } from "vue";
 import { ElMessage } from "element-plus";
 import { usePaste } from "../hooks/usePaste";
 import { postUpload } from "../api";
@@ -94,6 +94,13 @@ export default {
         ElMessage.error('File format is incorrect！');
       }
     });
+
+    return {
+      accept,
+      onBeforeUpload,
+      onSuccess,
+      onError
+    };
   }
 };
 </script>
