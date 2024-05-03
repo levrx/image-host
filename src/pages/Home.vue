@@ -23,7 +23,7 @@ import Upload from "../components/Upload.vue"
   position: relative;
   box-sizing: border-box;
   padding: 30px;
-  background: linear-gradient(240deg, #24d155, #00C8);
+  background: linear-gradient(240deg, rgba(144, 238, 144, 0.3), rgba(34, 139, 34, 0.3));
   .main{
     flex: 1;
     flex-direction: column;
