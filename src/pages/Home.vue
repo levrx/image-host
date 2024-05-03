@@ -6,10 +6,6 @@
     </div>
     <div class="main">
       <Upload @imageUploaded="handleImageUploaded"/>
-      <!-- Render uploaded images -->
-      <div class="uploaded-images">
-        <img v-for="(image, index) in uploadedImages" :key="index" :src="image" alt="Uploaded Image">
-      </div>
     </div>
   </div>
 </template>
@@ -19,13 +15,9 @@ import Wallpapers from "../components/Wallpapers.vue"
 import Upload from "../components/Upload.vue"
 import { reactive } from "vue";
 
-// Reactive array to store uploaded image URLs
-const uploadedImages = reactive([]);
-
 // Function to handle image uploaded event
 const handleImageUploaded = (imageUrl: string) => {
-  // Push the new image URL to the array
-  uploadedImages.push(imageUrl);
+  // Handle image upload here
 }
 </script>
 
@@ -62,18 +54,5 @@ const handleImageUploaded = (imageUrl: string) => {
   background-size: 110%;
   background-repeat: no-repeat;
   background-position: top;
-}
-
-.uploaded-images {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.uploaded-images img {
-  margin: 5px;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
 }
 </style>
