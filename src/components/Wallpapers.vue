@@ -34,7 +34,7 @@ const { wallpapers } = useWallpapers()
   height: 100%;
   top: 0;
   left: 0;
-  background: linear-gradient(240deg, rgba(144, 238, 144, 0.3), rgba(34, 139, 34, 0.3));
+  background: linear-gradient(240deg, rgba(0, 100, 0, 0.3), rgba(0, 50, 0, 0.3));
   z-index: -1;
 }
 
